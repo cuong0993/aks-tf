@@ -25,21 +25,21 @@ resource "kubernetes_deployment" "wordpress" {
           name  = "wordpress"
 
           env {
-            name = "WORDPRESS_DB_HOST"
+            name  = "WORDPRESS_DB_HOST"
             value = azurerm_mysql_server.wordpress.fqdn
           }
 
           env {
-            name = "WORDPRESS_DB_NAME"
+            name  = "WORDPRESS_DB_NAME"
             value = azurerm_mysql_database.wordpress.name
           }
           env {
-            name = "WORDPRESS_DB_USER"
+            name  = "WORDPRESS_DB_USER"
             value = azurerm_mysql_server.wordpress.administrator_login
           }
 
           env {
-            name = "WORDPRESS_DB_PASSWORD"
+            name  = "WORDPRESS_DB_PASSWORD"
             value = azurerm_mysql_server.wordpress.administrator_login_password
           }
           port {
