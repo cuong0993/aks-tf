@@ -1,8 +1,14 @@
-variable "app_name" {}
-variable "app_password" {}
+variable "app_name" {
+  default = "app"
+}
 
-variable "database_login" {}
-variable "database_password" {}
+variable "database_login" {
+  default = "mysqladminun"
+
+}
+variable "database_password" {
+  default = "sV2fMTherPIBzg1S"
+}
 
 variable "agent_count" {
   default = 1
@@ -21,7 +27,7 @@ variable "cluster_name" {
 }
 
 variable "resource_group_name" {
-  default = "wordpress"
+  default = "cuond"
 }
 
 variable "location" {

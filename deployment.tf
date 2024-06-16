@@ -21,26 +21,26 @@ resource "kubernetes_deployment" "wordpress" {
       }
       spec {
         container {
-          image = "wordpress:5.6"
+          image = "wordpress:6.5.4"
           name  = "wordpress"
 
           env {
             name  = "WORDPRESS_DB_HOST"
-            value = azurerm_mysql_server.wordpress.fqdn
+            value = azurerm_mysql_flexible_server.wordpress.fqdn
           }
 
           env {
             name  = "WORDPRESS_DB_NAME"
-            value = azurerm_mysql_database.wordpress.name
+            value = azurerm_mysql_flexible_database.wordpress.name
           }
           env {
             name  = "WORDPRESS_DB_USER"
-            value = azurerm_mysql_server.wordpress.administrator_login
+            value = azurerm_mysql_flexible_server.wordpress.administrator_login
           }
 
           env {
             name  = "WORDPRESS_DB_PASSWORD"
-            value = azurerm_mysql_server.wordpress.administrator_login_password
+            value = azurerm_mysql_flexible_server.wordpress.administrator_password
           }
           port {
             container_port = 80
